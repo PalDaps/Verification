@@ -1,0 +1,3 @@
+#!/bin/sh
+rm -f *.log *.so osci INCA_LIBS
+irun ${EXTRA_OPTS} -f compile_ius.f

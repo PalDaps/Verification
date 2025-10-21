@@ -1,0 +1,21 @@
+#!/bin/sh
+
+root=`ncroot 2> /dev/null`
+PERLEXE=$root/tools/perl-5.8.8/bin/perl
+PERLCMD="${PERLEXE} -I $root/tools/perl-5.8.8/lib/5.8.8"
+
+# check if PERL is in or out of CDS install
+if test ! -f ${PERLEXE} ; then
+  echo "Warning: Using perl outside CDS installation"
+  PERLCMD=perl;
+fi
+
+URM2OVM_DIR=`dirname $0`
+URM2OVM_CMD=`basename $0`
+URM2OVM_PL=${URM2OVM_DIR}/`basename $0`.pl
+
+if ! test -f "$URM2OVM_PL"; then
+  URM2OVM_PL=${root}/tools/ovm/bin/`basename $0`.pl
+fi
+
+${PERLCMD} ${URM2OVM_PL} "$@" ;

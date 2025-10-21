@@ -1,0 +1,50 @@
+
+This example illustrates how ovm responds to stop requests.
+
+In top.h ovm_stop_request is called at time 75. This results in the stop function being called in "top.a1" and "top.a2". The stop function uses a semaphore to wait until the run function has completed. After the run functions complete, the stop function returns.
+The simulation ends when all the stop functions return. At the simulation end, the report function is called.
+
+0 s: top.a1: In build phase
+0 s: top.a1.b1: In build phase
+0 s: top.a2: In build phase
+0 s: top.a2.b1: In build phase
+0 s: top:  start run phase
+0 s: top.a1: start run phase
+0 s: top.a1.b1: start run phase
+0 s: top.a2: start run phase
+0 s: top.a2.b1: start run phase
+19 ns: top.a1: end run phase
+75 ns: top.a1:  In the stop interrupt, waiting for alldone
+75 ns: top.a1:  Done with the stop interrupt
+75 ns: top.a2:  In the stop interrupt, waiting for alldone
+176 ns: top.a2.b1: end run phase
+200 ns: top.a2: end run phase
+200 ns: top.a2:  Done with the stop interrupt
+200 ns: top.a1.b1: In report phase
+200 ns: top.a2.b1: In report phase
+
+HOW To Run:
+-----------
+1) Using OSCI installation
+        setenv OVMSC_INSTALL to full path of OVM-SC install
+        setenv TLM1_INSTALL to full path of TLM1 install
+        setenv TLM2_INSTALL to full path of TLM2 install
+        setenv OSCI_INSTALL to the full path of the OSCI systemC installation
+
+        run_osci
+
+2) USING IUS
+
+        irun -f compile_ius.f
+
+FILES:
+------
+README          - This file
+dut.cpp         - Device under test ... just an empty shell
+dut.h           - Device under test ... just an empty shell
+run_ius         - Script to run using IUS
+run_osci        - Script to run using OSCI simulator
+compile_ius.f	- Compilation argument file for irun
+sc_main.cpp     - Instantiates the design and testbench
+top.h           - Contains the top level as well as the classes A and B which are used to illustrate the stop() function 
+

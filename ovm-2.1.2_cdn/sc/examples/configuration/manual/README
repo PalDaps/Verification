@@ -1,0 +1,61 @@
+This example illustrates the ovm configuration facility which supports setting of variables from outside the module. The configuration mechanism can be used to set variables in specific variable instances. A wild card mechanism is provided to specify a group of instances.
+
+The variables that are eligible for setting are specified by making a get_config_XXX call which associates the variable with the name used to set it.
+
+The variables are then set by set_config_XXX calls that do the setting.
+
+The output shown below shows that the configuration was correctly evaluated:
+
+top: In Build: debug = 0
+top.inst1: In Build: debug = 1
+top.inst2: In Build: debug = 1
+top.inst1: In Build: debug = 1
+top.inst2: In Build: debug = 1
+top.inst1.u1 myaa boobah
+top.inst1.u1 v    30
+top.inst1.u1 s    16
+top.inst1.u2 myaa howdy
+top.inst1.u2 v    0
+top.inst1.u2 s    16
+top.inst2.u1 myaa howdy
+top.inst2.u1 v    10
+top.inst2.u1 s    12345
+
+Following are the illustrated ovm_set_config_XXX calls:
+
+ovm_set_config_int("inst1.u2", "v", 5); // Not Applicable
+ovm_set_config_int("inst2.u1", "v", 3); // Not Applicable
+ovm_set_config_int("*.inst1.*", "s", 0x10); // Applies to top.inst1.u1 and u2
+ovm_set_config_int("top.*.u1", "v", 30); // Sets top.inst1.u1 to 30
+ovm_set_config_int("top.inst2.u1", "v", 10);
+ovm_set_config_int("top.*", "debug", 1); // Sets all the debug variables to 1 except for the top
+ovm_set_config_string("*", "myaa", "howdy");
+ovm_set_config_string("top.inst1.u1", "myaa", "boobah");
+
+HOW To Run:
+1) Using OSCI installation
+        setenv OVMSC_INSTALL to full path of OVM-SC install
+        setenv TLM1_INSTALL to full path of TLM1 install
+        setenv TLM2_INSTALL to full path of TLM2 install
+        setenv OSCI_INSTALL to the full path of the OSCI systemC installation
+
+        run_osci
+
+2) USING IUS
+	
+	irun -f compile_ius.f
+
+
+FILES
+------
+README          - This file
+dut.cpp         - Device under test ... just an empty shell
+dut.h           - Device under test ... just an empty shell
+run_ius         - Script to run using IUS
+run_osci        - Script to run using OSCI simulator
+compile_ius.f   - Options file for use with irun 
+sc_main.cpp     - Instantiates the design and testbench
+top.h           - Toplevel for design
+classA.h	- Intermediate Class
+classB.h	- Intermediate Class
+classC.h	- Class with variables that are set by configuration

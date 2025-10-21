@@ -1,0 +1,59 @@
+This example illustrates the use of the factory facility.
+
+The factory facility creates ovm_objects and component. The type of the object and component are specified by a type name string. The type can be changed with the type override facility. The type can be changed on an instance or global basis.
+
+In this example, there is a ovm_component subtype "gen" and an ovm_object subtype "packet". The types mygen and mypacket are derived from gen and packet respectively.
+
+ovm_component -> gen -> mygen
+ovm_object -> packet -> mypacket
+
+The example uses ovm_create_object to create "packet" objects, and ovm_create_component to create "gen" components. The example uses set_type_override and ovm_set_isnt_override to override gen with mygen, and packet with mypacket.
+
+The output indicates that the overrides were used:
+
+OVM_FACTORY REGISTERED TYPES:
+mypacket
+gen
+mygen
+packet
+top
+
+
+OVM_FACTORY REGISTERED TYPES:
+packet --> mypacket
+
+
+OVM_FACTORY INST OVERRIDES:
+top.gen1 gen --> mygen
+Getting a packet from top.gen1 (mygen)
+Got packet: mypacket addr: 12345
+data: 67890
+...
+
+HOW To Run:
+-----------
+1) Using OSCI installation
+        setenv OVMSC_INSTALL to full path of OVM-SC install
+        setenv TLM1_INSTALL to full path of TLM1 install
+        setenv TLM2_INSTALL to full path of TLM2 install
+        setenv OSCI_INSTALL to the full path of the OSCI systemC installation
+
+        run_osci
+
+2) USING IUS
+	
+	irun -f compile_ius.f
+
+FILES:
+------
+README          - This file
+dut.cpp         - Device under test ... just an empty shell
+dut.h           - Device under test ... just an empty shell
+run_ius         - Script to run using IUS
+run_osci        - Script to run using OSCI simulator
+compile_ius.f	- Compilation options file for irun
+sc_main.cpp     - Instantiates the design and testbench
+top.h           - Toplevel for design
+gen_pkg.h	- component base class (that is overridden by the configs given to the factory)
+packet_pkg.h	- packet base class (that is overridden by the configs given to the factory)
+

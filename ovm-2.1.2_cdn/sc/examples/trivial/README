@@ -1,0 +1,27 @@
+This is a trivial example consisting of an ovm_component, top, which instantiates another ovm_component, my component. Each of these components print a simple message.
+
+
+HOW To Run:
+-----------
+1) Using OSCI installation
+        setenv OVMSC_INSTALL to full path of OVM-SC install
+        setenv TLM1_INSTALL to full path of TLM1 install
+        setenv TLM2_INSTALL to full path of TLM2 install
+        setenv OSCI_INSTALL to the full path of the OSCI systemC installation
+
+        run_osci
+
+2) USING IUS
+
+        irun -f compile_ius.f
+
+FILES:
+------
+README          - This file
+dut.cpp         - Device under test ... just an empty shell
+dut.h           - Device under test ... just an empty shell
+run_ius         - Script to run using IUS
+run_osci        - Script to run using OSCI simulator
+compile_ius.f	- Compilation arguments file for irun
+sc_main.cpp     - Instantiates the design and testbench
+component.h	- contains the 2 classes which implements test

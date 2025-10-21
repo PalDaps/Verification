@@ -1,0 +1,67 @@
+The example is a simple producer/consumer model. It also illustrates the construction of templated ovm_components.
+
+packet.h defines a packet that is passed from producer to consumer.
+
+producer.h defines a templated class that produces objects and puts them in a fifo. The producer creates a new packet every 10ns and puts it on the out port, until "num_packets" have been create. "num_packets" is defined by a set_config_xxx statement.
+
+consumer.h processes packets over 40ns (10ns before the packet is removed from the fifo and 30ns after the packet is removed from the fifo).
+
+hello_world.h sets the number of packets used by each producer and consumer. It also sets the end time for the simulation.
+
+top.h creates the connection between the 2 producer modules and the  consumer.
+
+Producer1 -----|
+	       |--> Consumer
+Producer2 -----|
+
+The output shows that the producers take turns sending the packets to the consumer.
+
+Test passed...
+[0 s] hier=top.producer1: Starting.
+[0 s] hier=top.producer1: Sending top.producer1-0
+[0 s] hier=top.producer2: Starting.
+[0 s] hier=top.producer2: Sending top.producer2-0
+[10 ns] hier=top.producer1: Sending top.producer1-1
+[20 ns] hier=top.producer1: Exiting 
+[40 ns] hier=top.consumer:  Received top.producer1-0 local_count=1
+[60 ns] hier=top.producer2: Sending top.producer2-1
+[80 ns] hier=top.consumer:  Received top.producer1-1 local_count=2
+[100 ns] hier=top.producer2: Sending top.producer2-2
+[120 ns] hier=top.consumer:  Received top.producer2-0 local_count=3
+[140 ns] hier=top.producer2: Sending top.producer2-3
+[160 ns] hier=top.consumer:  Received top.producer2-1 local_count=4
+[180 ns] hier=top.producer2: Exiting 
+[200 ns] hier=top.consumer:  Received top.producer2-2 local_count=5
+[240 ns] hier=top.consumer:  Received top.producer2-3 local_count=6
+
+
+HOW To Run:
+----------
+1) Using OSCI installation
+	setenv OVMSC_INSTALL to full path of OVM-SC install
+	setenv TLM1_INSTALL to full path of TLM1 install
+	setenv TLM2_INSTALL to full path of TLM2 install
+        setenv OSCI_INSTALL to the full path of the OSCI systemC installation
+
+	run_osci
+
+2) USING IUS
+
+	irun -f compile_ius.f
+
+FILES
+-----
+README  	- This file
+consumer.h	- The consumer class 
+dut.cpp   	- Device under test ... just an empty shell
+dut.h   	- Device under test ... just an empty shell
+hello_world.h   - Sets up test
+packet.h	- Defines the packet class that is exchanged between the producer and consumer
+producer.h	- The consumer class
+run_ius		- Script to run using IUS
+run_osci	- Script to run using OSCI simulator
+compile_ius.f	- Compile options file for irun 
+sc_main.cpp	- Instantiates the design and testbench
+top.h           - Toplevel for design
+
+

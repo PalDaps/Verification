@@ -1,0 +1,1 @@
+-sysc -ovmtop "SC:top" -top dut sc_main.cpp dut.cpp

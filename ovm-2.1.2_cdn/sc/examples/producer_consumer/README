@@ -1,0 +1,56 @@
+This example shows a producer-consumer OVM-SC test. The producer
+produces tokens by reading data from an input file. The tokens are 
+instances of a class derived from ovm_object. The name of
+the input file is a string parameter in the producer. This string
+parameter is configured by the producer's parent, the parent_component. 
+The parent_component does the configuration before creating the producer. 
+The parent_component also creates a simple consumer and connects the
+output port of the producer to the input port of the consumer.
+Before creating the parent_component, the top switches in a more 
+sophisticated fifo_consumer in place of the simple consumer that the 
+parent_component has, using a type override. 
+
+This is the connection diagram:
+producer<packet> =====> fifo_consumer<packet> 
+
+This example demonstrates the following OVM-SC features:
+ 
+* the OVM-SC classes ovm_component and ovm_object 
+* declaration and definition of an ovm_object 
+* top-down parameter configuration using set_config_string() 
+  and get_config_string()
+* ovm_factory usage through create_component()
+* type overrides using set_type_override()
+* configuration, hierarchy creation, and binding in the build phase
+* ovm_component phases build and report
+
+
+HOW To Run:
+-----------
+1) Using OSCI installation
+        setenv OVMSC_INSTALL to full path of OVM-SC install
+        setenv TLM1_INSTALL to full path of TLM1 install
+        setenv TLM2_INSTALL to full path of TLM2 install
+        setenv OSCI_INSTALL to the full path of the OSCI systemC installation
+
+        run_osci
+
+2) USING IUS
+
+	irun -f compile_ius.f 
+
+FILES:
+------
+README          - This file
+dut.cpp         - Device under test ... just an empty shell
+dut.h           - Device under test ... just an empty shell
+run_ius         - Script to run using IUS
+run_osci        - Script to run using OSCI simulator
+compile_ius.f   - Compilation options file for irun
+sc_main.cpp     - Instantiates the design and testbench
+consumer.h	- templated consumer class
+producer.h	- templated producer class
+parent_component.h	- creates instances and binds them
+fifo_consumer.h - creates a templated subtype of the consumer class that is bound to the fifo class
+packet.h	- defines the packet which is produced and consumed
+test.h		- test setup

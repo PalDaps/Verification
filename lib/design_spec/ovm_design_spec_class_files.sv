@@ -1,0 +1,6 @@
+  `include "dut_env_defines.sv"
+  `include "ovm_dut_tlm_model.sv"
+  `include "ovm_dut_scoreboard.sv"
+  `include "ovm_dut_env.sv"
+  `include "ovm_dut_seq_lib.sv"
+  `include "ovm_dut_basic_test.sv"

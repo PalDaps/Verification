@@ -1,0 +1,9 @@
+# SELECT_COVERAGE
+
+select_coverage -all -module harness...
+select_functional
+set_assign_scoring
+set_branch_scoring
+set_expr_scoring -all
+
+set_covergroup -show_uninstantiated  -per_instance_default_one

@@ -1,0 +1,5 @@
+#!/bin/sh
+g++ -m32 -o osci sc_main.cpp -L${OVMSC_INSTALL}/sc -lovm -I${TLM1_INSTALL} -I${TLM2_INSTALL} -I${OSCI_INSTALL}/include -I${OVMSC_INSTALL}/sc -L${OSCI_INSTALL}/lib-linux -lsystemc -lm
+./osci
+
+
