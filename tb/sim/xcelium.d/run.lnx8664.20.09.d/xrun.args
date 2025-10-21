@@ -1,0 +1,29 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-compile
+test_files_pkg.sv
+tests.sv
+-cdslib
+/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/tb/sim/cds.lib
+-hdlvar
+/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/tb/sim/hdl.var
+-incdir
+/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/rtl
+-incdir
+/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/lib/ahb_vc/
+-incdir
+/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/lib/spi_vc/
+-incdir
+/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/lib/design_spec/
+-incdir
+../harness/
+-incdir
+../tests
+-errormax
+1
+-define
+TRACER_ENABLE
+-incdir
+/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src

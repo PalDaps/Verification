@@ -1,0 +1,5 @@
+General information about this run 
+-- piranha worklib.spi_tx_tracer:v
+-- TOOL:	cfe64(64)	20.09-s012
+-- Options : +TOOLNAME halsynth -HAL ALL -BB_SIG_SIZE 16384 +DISABLE -MULTI_DRIVEN_REG TRI -NOLOG +PRIM_TRI +FSM_RULE_CHECKS -SYNTHESIS ALL -IGNORE_COMB_INIT -VITAL_BLACKBOX +MDARRAY_ON -DEFINES /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/tb/sim/hal_example.def -DUMP +RULES_LIST -PRAGMA ALL -cdslib ./xcelium.d/run.d/cds.lib -hdlvar ./xcelium.d/run.d/hdl.var worklib.spi_tx_tracer:v
+-- SMV File is :/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/tb/sim/worklib/spi_tx_tracer/v/spi_tx_tracer.smv

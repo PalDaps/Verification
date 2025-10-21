@@ -1,0 +1,462 @@
+xmsim(64): 20.09-s012: (c) Copyright 1995-2021 Cadence Design Systems, Inc.
+SVSEED set from command line: 1761063920
+xmsim: *W,RNDXCELON: A newer version of the SystemVerilog constraint solver is being used which has better support for array-solving, new solve-order mechanism, and seed stability enhancements..
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> 
+xcelium> global env
+xcelium> 
+xcelium> if {[info exists env(DUMPDB)]} {
+>   set DB_EN $env(DUMPDB)
+> } else {
+>   set DB_EN 0
+> }
+1
+xcelium> puts "DB_EN=$DB_EN"
+DB_EN=1
+xcelium> 
+xcelium> 
+xcelium> proc create_db {} {
+>   set assert_1164_warnings no
+>   database -open harness.shm -into harness.shm -event -default -compress
+>   probe -create -shm harness -all -variables -database harness.shm -depth all -memories
+> }
+xcelium> 
+xcelium> 
+xcelium> if {$DB_EN == 1} {
+>   create_db
+> }
+xmsim: *W,PRLDYN: The design contains dynamic objects. The "-all" option excludes dynamic objects to improve performance. To enable probing of dynamic objects the "-all -dynamic" options should be added to the probe command.
+Created probe 1
+xcelium> 
+xcelium> run
+----------------------------------------------------------------
+CDNS-OVM-2.1.2 (14.10-s021)
+(C) 2007-2011 Mentor Graphics Corporation
+(C) 2007-2011 Cadence Design Systems, Inc.
+----------------------------------------------------------------
+OVM_INFO @ 150: reporter [RNTST] Running test test_fifo...
+OVM_INFO @ 150: ovm_test_top [ovm_test_top] End_of_elaboration
+SDI/Verilog Transaction Recording Facility Version 20.09-s012
+OVM_INFO @ 150: reporter [test_fifo_sequence] LET THE test_fifo BEGIN!!!!!
+                 650::harness.DUT.tracer::write to TX = d3adab48
+OVM_INFO @ 650: ovm_dut_tlm_model [<unknown>] Write to TX = d3adab48
+OVM_INFO @ 650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                 850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                1050::harness.DUT.tracer::write to TX = 306208e5
+OVM_INFO @ 1050: ovm_dut_tlm_model [<unknown>] Write to TX = 306208e5
+OVM_INFO @ 1050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                1250::harness.DUT.tracer::write to TX = 80bf7e04
+OVM_INFO @ 1250: ovm_dut_tlm_model [<unknown>] Write to TX = 80bf7e04
+OVM_INFO @ 1250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                1450::harness.DUT.tracer::write to TX = 406b9bea
+OVM_INFO @ 1450: ovm_dut_tlm_model [<unknown>] Write to TX = 406b9bea
+OVM_INFO @ 1450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                1650::harness.DUT.tracer::read from SR = 00000002
+OVM_INFO @ 1650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000002
+OVM_INFO @ 1650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                1850::harness.DUT.tracer::write to CR = 00000001
+OVM_INFO @ 1850: ovm_dut_tlm_model [<unknown>] Write to CR = 00000001
+OVM_INFO @ 1850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                2050::harness.DUT.tracer::read from SR = 00000002
+OVM_INFO @ 2050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000002
+OVM_INFO @ 2050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                2250::harness.DUT.tracer::read from SR = 00000002
+OVM_INFO @ 2250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000002
+OVM_INFO @ 2250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                2450::harness.DUT.tracer::read from SR = 00000002
+OVM_INFO @ 2450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000002
+OVM_INFO @ 2450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                2650::harness.DUT.tracer::read from SR = 00000002
+OVM_INFO @ 2650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000002
+OVM_INFO @ 2650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                2850::harness.DUT.tracer::read from SR = 00000002
+OVM_INFO @ 2850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000002
+OVM_INFO @ 2850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                3050::harness.DUT.tracer::read from SR = 00000002
+OVM_INFO @ 3050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000002
+OVM_INFO @ 3050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                3250::harness.DUT.tracer::read from SR = 00000002
+OVM_INFO @ 3250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000002
+OVM_INFO @ 3250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                3450::harness.DUT.tracer::read from SR = 00000002
+OVM_INFO @ 3450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000002
+OVM_INFO @ 3450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                3650::harness.DUT.tracer::read from SR = 00000002
+OVM_INFO @ 3650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000002
+OVM_INFO @ 3650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                3850::harness.DUT.tracer::read from SR = 00000002
+OVM_INFO @ 3850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000002
+OVM_INFO @ 3850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                4050::harness.DUT.tracer::read from SR = 00000002
+OVM_INFO @ 4050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000002
+OVM_INFO @ 4050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                4250::harness.DUT.tracer::read from SR = 00000002
+OVM_INFO @ 4250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000002
+OVM_INFO @ 4250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                4450::harness.DUT.tracer::read from SR = 00000002
+OVM_INFO @ 4450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000002
+OVM_INFO @ 4450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                4650::harness.DUT.tracer::read from SR = 00000002
+OVM_INFO @ 4650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000002
+OVM_INFO @ 4650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                4850::harness.DUT.tracer::read from SR = 00000002
+OVM_INFO @ 4850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000002
+OVM_INFO @ 4850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                5050::harness.DUT.tracer::finish SPI trinsmit = d3adab48
+                5050::harness.DUT.tracer::read from SR = 00000002
+OVM_INFO @ 5050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000002
+OVM_INFO @ 5050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+OVM_INFO @ 5100: ovm_dut_tlm_model [<unknown>] Transmit SPI DATA = d3adab48
+OVM_INFO @ 5100: ovm_test_top.dut_env.ovm_dut_scoreboard.target_if_comparator [Comparator Match] 
+                5250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 5250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 5250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                5450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 5450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 5450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                5650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 5650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 5650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                5850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 5850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 5850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                6050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 6050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 6050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                6250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 6250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 6250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                6450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 6450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 6450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                6650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 6650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 6650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                6850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 6850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 6850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                7050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 7050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 7050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                7250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 7250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 7250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                7450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 7450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 7450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                7650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 7650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 7650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                7850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 7850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 7850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                8050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 8050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 8050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                8250::harness.DUT.tracer::finish SPI trinsmit = 306208e5
+                8250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 8250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 8250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+OVM_INFO @ 8300: ovm_dut_tlm_model [<unknown>] Transmit SPI DATA = 306208e5
+OVM_INFO @ 8300: ovm_test_top.dut_env.ovm_dut_scoreboard.target_if_comparator [Comparator Match] 
+                8450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 8450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 8450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                8650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 8650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 8650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                8850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 8850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 8850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                9050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 9050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 9050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                9250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 9250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 9250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                9450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 9450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 9450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                9650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 9650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 9650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                9850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 9850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 9850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               10050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 10050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 10050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               10250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 10250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 10250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               10450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 10450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 10450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               10650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 10650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 10650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               10850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 10850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 10850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               11050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 11050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 11050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               11250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 11250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 11250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               11450::harness.DUT.tracer::finish SPI trinsmit = 80bf7e04
+               11450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 11450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 11450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+OVM_INFO @ 11500: ovm_dut_tlm_model [<unknown>] Transmit SPI DATA = 80bf7e04
+OVM_INFO @ 11500: ovm_test_top.dut_env.ovm_dut_scoreboard.target_if_comparator [Comparator Match] 
+               11650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 11650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 11650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               11850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 11850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 11850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               12050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 12050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 12050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               12250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 12250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 12250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               12450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 12450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 12450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               12650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 12650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 12650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               12850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 12850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 12850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               13050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 13050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 13050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               13250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 13250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 13250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               13450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 13450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 13450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               13650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 13650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 13650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               13850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 13850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 13850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               14050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 14050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 14050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               14250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 14250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 14250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               14450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 14450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 14450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               14650::harness.DUT.tracer::finish SPI trinsmit = 406b9bea
+               14650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 14650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 14650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+OVM_INFO @ 14700: ovm_dut_tlm_model [<unknown>] Transmit SPI DATA = 406b9bea
+OVM_INFO @ 14700: ovm_test_top.dut_env.ovm_dut_scoreboard.target_if_comparator [Comparator Match] 
+               14850::harness.DUT.tracer::read from SR = 00000001
+OVM_INFO @ 14850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000001
+OVM_INFO @ 14850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               15050::harness.DUT.tracer::read from SR = 00000001
+OVM_INFO @ 15050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000001
+OVM_INFO @ 15050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               15250::harness.DUT.tracer::write to TX = 1fca39b9
+OVM_INFO @ 15250: ovm_dut_tlm_model [<unknown>] Write to TX = 1fca39b9
+OVM_INFO @ 15250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               15450::harness.DUT.tracer::write to TX = 3f7cb9a2
+OVM_INFO @ 15450: ovm_dut_tlm_model [<unknown>] Write to TX = 3f7cb9a2
+OVM_INFO @ 15450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               15650::harness.DUT.tracer::write to TX = 5c3ddb46
+OVM_INFO @ 15650: ovm_dut_tlm_model [<unknown>] Write to TX = 5c3ddb46
+OVM_INFO @ 15650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               15850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 15850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 15850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               16050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 16050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 16050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               16250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 16250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 16250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               16450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 16450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 16450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               16650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 16650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 16650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               16850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 16850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 16850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               17050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 17050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 17050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               17250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 17250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 17250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               17450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 17450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 17450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               17650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 17650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 17650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               17850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 17850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 17850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               18050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 18050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 18050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               18250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 18250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 18250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               18450::harness.DUT.tracer::finish SPI trinsmit = 1fca39b9
+               18450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 18450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 18450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+OVM_INFO @ 18500: ovm_dut_tlm_model [<unknown>] Transmit SPI DATA = 1fca39b9
+OVM_INFO @ 18500: ovm_test_top.dut_env.ovm_dut_scoreboard.target_if_comparator [Comparator Match] 
+               18650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 18650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 18650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               18850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 18850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 18850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               19050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 19050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 19050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               19250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 19250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 19250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               19450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 19450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 19450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               19650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 19650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 19650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               19850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 19850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 19850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               20050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 20050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 20050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               20250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 20250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 20250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               20450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 20450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 20450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               20650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 20650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 20650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               20850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 20850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 20850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               21050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 21050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 21050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               21250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 21250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 21250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               21450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 21450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 21450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               21650::harness.DUT.tracer::finish SPI trinsmit = 3f7cb9a2
+               21650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 21650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 21650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+OVM_INFO @ 21700: ovm_dut_tlm_model [<unknown>] Transmit SPI DATA = 3f7cb9a2
+OVM_INFO @ 21700: ovm_test_top.dut_env.ovm_dut_scoreboard.target_if_comparator [Comparator Match] 
+               21850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 21850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 21850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               22050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 22050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 22050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               22250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 22250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 22250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               22450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 22450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 22450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               22650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 22650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 22650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               22850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 22850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 22850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               23050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 23050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 23050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               23250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 23250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 23250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               23450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 23450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 23450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               23650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 23650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 23650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               23850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 23850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 23850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               24050::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 24050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 24050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               24250::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 24250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 24250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               24450::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 24450: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 24450: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               24650::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 24650: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 24650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               24850::harness.DUT.tracer::finish SPI trinsmit = 5c3ddb46
+               24850::harness.DUT.tracer::read from SR = 00000000
+OVM_INFO @ 24850: ovm_dut_tlm_model [<unknown>] Read from SR = 00000000
+OVM_INFO @ 24850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+OVM_INFO @ 24900: ovm_dut_tlm_model [<unknown>] Transmit SPI DATA = 5c3ddb46
+OVM_INFO @ 24900: ovm_test_top.dut_env.ovm_dut_scoreboard.target_if_comparator [Comparator Match] 
+               25050::harness.DUT.tracer::read from SR = 00000001
+OVM_INFO @ 25050: ovm_dut_tlm_model [<unknown>] Read from SR = 00000001
+OVM_INFO @ 25050: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+               25250::harness.DUT.tracer::read from SR = 00000001
+OVM_INFO @ 25250: ovm_dut_tlm_model [<unknown>] Read from SR = 00000001
+OVM_INFO @ 25250: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+
+--- OVM Report Summary ---
+
+** Report counts by severity
+OVM_INFO :  265
+OVM_WARNING :    0
+OVM_ERROR :    0
+OVM_FATAL :    0
+** Report counts by id
+[<unknown>]   131
+[Comparator Match]   131
+[RNTST]     1
+[ovm_test_top]     1
+[test_fifo_sequence]     1
+Simulation complete via $finish(1) at time 2525 NS + 21
+/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src/base/ovm_root.svh:533       $finish;
+xcelium> exit
+xmsim: *N,COVCGN: Coverage configuration file command "set_covergroup -new_instance_reporting" can be specified to improve the scoping and naming of covergroup instances. It may be noted that subsequent merging of a coverage database saved with this command and a coverage database saved without this command is not allowed.
+xmsim: *W,CGDEFN: Default name "worklib.ovm_pkg::.ovm_top.ovm_component::m_children[ovm_dut_tlm_model].sr.fifo_sates" will be generated for covergroup instance "fifo_sates" as the name of the covergroup instance is not specified explicitly: /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/lib/design_spec/ovm_dut_tlm_model.sv, 35.
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  harness(harness)
+  scope    :  harness
+  testname :  test_fifo
+
+coverage files:
+  model(design data) :  ./cov_work/harness/icc_3f3df6d0_5da80c88.ucm (reused)
+  data               :  ./cov_work/harness/test_fifo/icc_3f3df6d0_5da80c88.ucd

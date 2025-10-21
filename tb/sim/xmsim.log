@@ -1,0 +1,75 @@
+xmsim(64): 20.09-s012: (c) Copyright 1995-2021 Cadence Design Systems, Inc.
+SVSEED set from command line: 1761063945
+xmsim: *W,RNDXCELON: A newer version of the SystemVerilog constraint solver is being used which has better support for array-solving, new solve-order mechanism, and seed stability enhancements..
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> 
+xcelium> global env
+xcelium> 
+xcelium> if {[info exists env(DUMPDB)]} {
+>   set DB_EN $env(DUMPDB)
+> } else {
+>   set DB_EN 0
+> }
+1
+xcelium> puts "DB_EN=$DB_EN"
+DB_EN=1
+xcelium> 
+xcelium> 
+xcelium> proc create_db {} {
+>   set assert_1164_warnings no
+>   database -open harness.shm -into harness.shm -event -default -compress
+>   probe -create -shm harness -all -variables -database harness.shm -depth all -memories
+> }
+xcelium> 
+xcelium> 
+xcelium> if {$DB_EN == 1} {
+>   create_db
+> }
+xmsim: *W,PRLDYN: The design contains dynamic objects. The "-all" option excludes dynamic objects to improve performance. To enable probing of dynamic objects the "-all -dynamic" options should be added to the probe command.
+Created probe 1
+xcelium> 
+xcelium> run
+----------------------------------------------------------------
+CDNS-OVM-2.1.2 (14.10-s021)
+(C) 2007-2011 Mentor Graphics Corporation
+(C) 2007-2011 Cadence Design Systems, Inc.
+----------------------------------------------------------------
+OVM_INFO @ 150: reporter [RNTST] Running test test_shuf...
+OVM_INFO @ 150: ovm_test_top [ovm_test_top] End_of_elaboration
+SDI/Verilog Transaction Recording Facility Version 20.09-s012
+OVM_INFO @ 150: reporter [test_shuf_sequence] LET THE test_shuf BEGIN!!!!!
+                 650::harness.DUT.tracer::write to CR = fffffffe
+OVM_INFO @ 650: ovm_dut_tlm_model [<unknown>] Write to CR = fffffffe
+OVM_INFO @ 650: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+                 850::harness.DUT.tracer::write to CR = 00000000
+OVM_INFO @ 850: ovm_dut_tlm_model [<unknown>] Write to CR = 00000000
+OVM_INFO @ 850: ovm_test_top.dut_env.ovm_dut_scoreboard.system_if_comparator [Comparator Match] 
+
+--- OVM Report Summary ---
+
+** Report counts by severity
+OVM_INFO :    7
+OVM_WARNING :    0
+OVM_ERROR :    0
+OVM_FATAL :    0
+** Report counts by id
+[<unknown>]     2
+[Comparator Match]     2
+[RNTST]     1
+[ovm_test_top]     1
+[test_shuf_sequence]     1
+Simulation complete via $finish(1) at time 85 NS + 15
+/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src/base/ovm_root.svh:533       $finish;
+xcelium> exit
+xmsim: *N,COVCGN: Coverage configuration file command "set_covergroup -new_instance_reporting" can be specified to improve the scoping and naming of covergroup instances. It may be noted that subsequent merging of a coverage database saved with this command and a coverage database saved without this command is not allowed.
+xmsim: *W,CGDEFN: Default name "worklib.ovm_pkg::.ovm_top.ovm_component::m_children[ovm_dut_tlm_model].sr.fifo_sates" will be generated for covergroup instance "fifo_sates" as the name of the covergroup instance is not specified explicitly: /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/lib/design_spec/ovm_dut_tlm_model.sv, 35.
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  harness(harness)
+  scope    :  harness
+  testname :  test_shuf
+
+coverage files:
+  model(design data) :  ./cov_work/harness/icc_3f3df6d0_5da80c88.ucm (reused)
+  data               :  ./cov_work/harness/test_shuf/icc_3f3df6d0_5da80c88.ucd

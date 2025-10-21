@@ -1,0 +1,14 @@
+halsynth: Loading design snapshot....
+halsynth: Traversing design hierarchy....
+halsynth: *M,_SCOPE: spi_tx_tracer
+halsynth: *W,EMPMOD (/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/rtl/spi_tx_tracer.v,8|0): Module/Design-unit 'spi_tx_tracer' is empty.
+~:CLKOUT
+~:CLKSRD
+~:COMBLP
+~:INPOUT
+~:MUDREG
+~:MULWIR
+~:UNDRIV
+halsynth: *M,_SCOPE: spi_tx
+halsynth: Total errors   = 0.
+halsynth: Total warnings = 1.

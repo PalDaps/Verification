@@ -1,0 +1,6 @@
+define XMSIMRC	( /cds/CDS/XCELIUM2009/tools/xcelium/files/xmsimrc, ~/.xmsimrc )
+define AMSRC	( /cds/CDS/XCELIUM2009/tools/xcelium/files/amsrc, ~/.amsrc )
+include ./hdlrun.var
+define SNAPSHOT worklib.harness:sv
+DEFINE RUNMODEDEFAULT 1
+DEFINE LIB_MAP ( + => worklib )

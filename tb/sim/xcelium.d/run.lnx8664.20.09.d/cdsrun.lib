@@ -1,0 +1,2 @@
+SOFTINCLUDE /cds/CDS/XCELIUM2009/tools/inca/files/cds.lib
+include ../../cds.lib

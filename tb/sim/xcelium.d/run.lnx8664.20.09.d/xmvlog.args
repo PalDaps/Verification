@@ -1,0 +1,36 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-XLMODE
+./xcelium.d/run.lnx8664.20.09.d
+-RUNMODE
+test_files_pkg.sv
+tests.sv
+-CDSLIB
+./xcelium.d/run.lnx8664.20.09.d/cdsrun.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.20.09.d/hdlrun.var
+-INCDIR
+/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/rtl
+-INCDIR
+/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/lib/ahb_vc/
+-INCDIR
+/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/lib/spi_vc/
+-INCDIR
+/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/lib/design_spec/
+-INCDIR
+../harness/
+-INCDIR
+../tests
+-ERRORMAX
+1
+-DEFINE
+TRACER_ENABLE
+-INCDIR
+/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src
+-MESSAGES
+-UPDATE
+-XLLIBSTORE
+./xcelium.d/run.lnx8664.20.09.d/xllibs
+-ALLOWUNBOUND

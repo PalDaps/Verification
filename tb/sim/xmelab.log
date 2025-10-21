@@ -1,0 +1,10 @@
+xmelab(64): 20.09-s012: (c) Copyright 1995-2021 Cadence Design Systems, Inc.
+xmelab: *N,CGNSWA: (File: cover.cf, Line: 3): A covergroup is not (de)selected with the "-all" option of the (de)select_coverage command. Use the coverage metric "-covergroup" with the (de)select_coverage command to (de)select a covergroup.
+xmelab: *W,COVEOP: cover.cf:7 "-all" with set_expr_scoring is an expensive option as it selects all the expressions in the design. It has been deprecated and will not be supported in subsequent releases.
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+  reg [`FIFO_DATA_WIDTH-1:0] mem [fifo_depth-1:0];  // FIFO memory
+                               |
+xmelab: *W,COVMDD (/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/rtl/fifo_buffer.v,25|31): Toggle coverage for bit, logic, reg, wire, enum and struct multi-dimensional static arrays and vectors is not supported by default. To enable toggle coverage for enum multi-dimensional static arrays specify 'set_toggle_scoring -sv_enum enable_mda' and for other multi-dimensional static arrays, specify 'set_toggle_scoring -sv_mda [<max_bit_base2_exponent>] [-sv_mda_of_struct]' ccf command in the coverage configuration file.
+xmelab: *N,COVCGN: Coverage configuration file command "set_covergroup -new_instance_reporting" can be specified to improve the scoping and naming of covergroup instances. It may be noted that subsequent merging of a coverage database saved with this command and a coverage database saved without this command is not allowed.
+xmelab: Memory Usage - Final: 62.1M, Peak: 62.1M, Peak virtual: 164.5M
+xmelab: CPU Usage - 0.4s system + 2.9s user = 3.3s total (3.5s, 94.6% cpu)

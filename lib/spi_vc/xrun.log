@@ -1,0 +1,57 @@
+xrun(64): 20.09-s012: (c) Copyright 1995-2021 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	20.09-s012: Started on Oct 21, 2025 at 20:25:12 MSK
+irun
+	-nclibdirpath /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/tb/sim
+	-compile
+	ovm_spi_vc_pkg.sv
+	-cdslib /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/tb/sim/cds.lib
+	-hdlvar /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/tb/sim/hdl.var
+	-incdir /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/rtl
+	-incdir /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/lib/ahb_vc/
+	-incdir /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/lib/spi_vc/
+	-incdir /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/lib/design_spec/
+	-incdir ../harness/
+	-incdir ../tests
+	-errormax 1
+	-define TRACER_ENABLE
+	-incdir /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src
+xrun: *W,OPDEPRREN: Command Line Option (-nclibdirpath) is deprecated. Use (-xmlibdirpath) instead.
+xrun: *W,NCEXDEP: Executable (irun) is deprecated. Use (xrun) instead.
+xmvlog: *W,NOTIND: unable to access -INCDIR ../harness/ (No such file or directory).
+xmvlog: *W,NOTIND: unable to access -INCDIR ../tests (No such file or directory).
+file: ovm_spi_vc_pkg.sv
+	interface worklib.SPI_if:sv
+		errors: 0, warnings: 0
+`ifdef INCA
+          |
+xmvlog: *W,SRCDEPR (/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src/ovm_macros.svh,29|10): Indicated Source (INCA) is deprecated. Use (XCELIUM) instead.
+(`include file: /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src/ovm_macros.svh line 29, file: ovm_spi_vc_pkg.sv line 9)
+`ifndef INCA
+           |
+xmvlog: *W,SRCDEPR (/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src/macros/ovm_phase_defines.svh,23|11): Indicated Source (INCA) is deprecated. Use (XCELIUM) instead.
+(`include file: /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src/macros/ovm_phase_defines.svh line 23, `include file: /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src/ovm_macros.svh line 43, file: ovm_spi_vc_pkg.sv line 9)
+`ifndef INCA
+           |
+xmvlog: *W,SRCDEPR (/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src/macros/ovm_object_defines.svh,1453|11): Indicated Source (INCA) is deprecated. Use (XCELIUM) instead.
+(`include file: /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src/macros/ovm_object_defines.svh line 1453, `include file: /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src/ovm_macros.svh line 44, file: ovm_spi_vc_pkg.sv line 9)
+`ifndef INCA
+           |
+xmvlog: *W,SRCDEPR (/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src/compatibility/urm_message_defines.svh,51|11): Indicated Source (INCA) is deprecated. Use (XCELIUM) instead.
+(`include file: /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src/compatibility/urm_message_defines.svh line 51, `include file: /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src/ovm_macros.svh line 51, file: ovm_spi_vc_pkg.sv line 9)
+`ifdef INCA
+          |
+xmvlog: *W,SRCDEPR (/home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src/cdns_additions/cdns_defines.svh,23|10): Indicated Source (INCA) is deprecated. Use (XCELIUM) instead.
+(`include file: /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src/cdns_additions/cdns_defines.svh line 23, `include file: /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/ovm-2.1.2_cdn/src/ovm_macros.svh line 56, file: ovm_spi_vc_pkg.sv line 9)
+  endtask : collect_data
+                       |
+xmvlog: *W,LBLMAT (ovm_spi_monitor.sv,72|23): Label/name mismatch: collect_transactions - collect_data.
+(`include file: ovm_spi_monitor.sv line 72, `include file: ovm_spi_vc_class_files.sv line 7, file: ovm_spi_vc_pkg.sv line 11)
+	package worklib.ovm_spi_vc_pkg:sv
+		errors: 0, warnings: 6
+xmvlog: *W,SPDUSD: Include directory /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/rtl given but not used.
+xmvlog: *W,SPDUSD: Include directory /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/lib/ahb_vc/ given but not used.
+xmvlog: *W,SPDUSD: Include directory /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/lib/spi_vc/ given but not used.
+xmvlog: *W,SPDUSD: Include directory /home/IHP/ihp3/DashkoPavel/DesignComplexFunctionalBlocks/spi_tx_example/lib/design_spec/ given but not used.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 6
+TOOL:	xrun(64)	20.09-s012: Exiting on Oct 21, 2025 at 20:25:13 MSK  (total: 00:00:01)

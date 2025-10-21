@@ -1,0 +1,9 @@
+import ovm_pkg::*;
+`include "ovm_macros.svh"
+import ovm_ahb_vc_pkg::*;
+import ovm_spi_vc_pkg::*;
+import ovm_design_spec_pkg::*;
+`include "test_regs.sv"
+`include "test_fifo.sv"
+`include "test_tx.sv"
+`include "test_shuf.sv"
