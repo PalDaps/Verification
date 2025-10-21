@@ -71,14 +71,25 @@ module spi_tx (
     //control
     .FIFO_WRITE(fifo_tx_write),
     .FIFO_READ(fifo_tx_read),
+    /* 
+    Mistake 4
+    Incorrect buffer dimension. The correct size is shown in the documentation.
     .DATA_IN(HWDATA[30:0]),
+    */
+    .DATA_IN(HWDATA[31:0]),
     .DATA_OUT(fifo_tx_data_out),
     .EMPTY(fifo_tx_empty),
     .FULL(fifo_tx_full)
   );
 
   //------------------------------- SPI Control ------------------------------------------//
-  sip_control spi_cntrl(
+  /* 
+  Сollaboration
+  Mistake 3
+  Incorrect module name. It was like this:
+  sip_control spi_cntrl( 
+  */
+  spi_control spi_cntrl(
     //SYSTEM
     .CLK(CLK),
     .RST_N(RST_N),

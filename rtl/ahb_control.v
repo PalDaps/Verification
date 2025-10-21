@@ -60,9 +60,16 @@ module ahb_control (
       if (HREADY && HSEL) haddr <= HADDR ;
 
   // Register select  (decode address)
+  /*
+  Mistake 2
+  The size for the variables should be adjusted automatically.  It was like this:
   assign cs_tx = (haddr == 2'h`TX_ADDR);
   assign cs_cr = (haddr == 2'h`CR_ADDR);
   assign cs_sr = (haddr == 2'h`SR_ADDR);
+  */
+  assign cs_tx = (haddr == `TX_ADDR);
+  assign cs_cr = (haddr == `CR_ADDR);
+  assign cs_sr = (haddr == `SR_ADDR);
 
   // AHB data read from registers
   assign HRDATA =
@@ -75,7 +82,12 @@ module ahb_control (
     else if(wr && cs_cr) enable <= HWDATA[0];
   end
   assign CR[0]               = enable;
-  assign CR[1]               = 1'b1; // stupid error
+  /* 
+  Mistake 4
+  Let's just say that CR takes 0. It was like this:
+  assign CR[1]               = 1'b1; // stupid error 
+  */
+  assign CR[1]               = 1'b0; // stupid error
   assign CR[`DATA_WIDTH-1:2] = 0;
   
   //---------------------------------- SR register ---------------------------------------//

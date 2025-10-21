@@ -25,13 +25,24 @@ module fifo_buffer (
   reg [`FIFO_DATA_WIDTH-1:0] mem [fifo_depth-1:0];  // FIFO memory
 
   reg  [pointer_width:0] read_ptr;                  // pointer to last readed position
+  /* 
+  Mistake 6
+  WitePtr? It was like this:
   reg  [pointer_width:0] wite_ptr;                  // pointer to write position
-  wire [pointer_width:0] wite_ptr_p1;               // incremented pointer to last readed position
+  wire [pointer_width:0] wite_ptr_p1;               // incremented pointer to last readed position 
+  */
+  reg  [pointer_width:0] write_ptr;                  // pointer to write position
+  wire [pointer_width:0] write_ptr_p1;               // incremented pointer to last readed position
   wire [pointer_width:0] read_ptr_p1;               // incremented pointer to write position
 
   // FIFO DATA control
+  /* 
+  Mistake 7
+  It should be 32-bit.? It was like this:
+  if (FIFO_WRITE && !FULL) mem[wite_ptr[pointer_width:0]] <= DATA_IN;       // write to FIFO 
+  */
   always @(posedge CLK)
-    if (FIFO_WRITE && !FULL) mem[wite_ptr[pointer_width:0]] <= DATA_IN;       // write to FIFO
+    if (FIFO_WRITE && !FULL) mem[write_ptr[pointer_width-1:0]] <= DATA_IN;       // write to FIFO
 
   /*
   always @(posedge CLK)
@@ -40,10 +51,10 @@ module fifo_buffer (
   assign DATA_OUT = mem[read_ptr[pointer_width-1:0]];                           // read from FIFO (unbuffered)
 
   // FIFO pointers control
-  assign wite_ptr_p1 = wite_ptr+1;
+  assign write_ptr_p1 = write_ptr+1;
   always @(posedge CLK or negedge RST_N)
-    if (!RST_N)                       wite_ptr <= 0;
-    else if (FIFO_WRITE && !FULL)     wite_ptr <= wite_ptr_p1;                  // increment pointer on write FIFO event
+    if (!RST_N)                       write_ptr <= 0;
+    else if (FIFO_WRITE && !FULL)     write_ptr <= write_ptr_p1;                  // increment pointer on write FIFO event
 
   assign read_ptr_p1 = read_ptr+1;
   always @(posedge CLK or negedge RST_N)
@@ -51,7 +62,7 @@ module fifo_buffer (
     else if (FIFO_READ && !EMPTY)     read_ptr <= read_ptr_p1;                  // increment pointer on read FIFO event
 
   // FIFO State flags control
-  assign EMPTY  = (wite_ptr == read_ptr) ? 1'b1 : 1'b0;
-  assign FULL   = ((wite_ptr[pointer_width-1:0] == read_ptr[pointer_width-1:0]) && (wite_ptr[pointer_width] != read_ptr[pointer_width])) ? 1'b1 : 1'b0;
+  assign EMPTY  = (write_ptr == read_ptr) ? 1'b1 : 1'b0;
+  assign FULL   = ((write_ptr[pointer_width-1:0] == read_ptr[pointer_width-1:0]) && (write_ptr[pointer_width] != read_ptr[pointer_width])) ? 1'b1 : 1'b0;
 
 endmodule
